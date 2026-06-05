@@ -39,10 +39,8 @@ contract StakingTest is Test {
         vm.prank(user);
         staking.stake(500);
 
-        // 1 gün ileri sar
         vm.warp(block.timestamp + 1 days);
 
-        // Burada ödülün hesaplandığını (veya state'in değiştiğini) doğrularsın
         assertEq(staking.lastUpdatedTime(user), block.timestamp - 1 days);
     }
 }
